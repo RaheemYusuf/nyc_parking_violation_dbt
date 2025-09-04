@@ -38,12 +38,13 @@ jobs:
           poetry install --no-interaction --no-root
 
       - name: Run dbt Prod
+        working-directory: nyc_parking_violations
         run: |
-          cd nyc_parking_violations
           poetry run dbt debug
           poetry run dbt compile --target prod
           poetry run dbt run --target prod
 
       - name: Test dbt Prod
+        working-directory: nyc_parking_violations
         run: |
           poetry run dbt test --target prod
