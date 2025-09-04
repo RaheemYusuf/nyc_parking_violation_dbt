@@ -39,6 +39,7 @@ jobs:
 
       - name: Run dbt Prod
         run: |
+          cd nyc_parking_violations
           poetry run dbt debug
           poetry run dbt compile --target prod
           poetry run dbt run --target prod
